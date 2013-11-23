@@ -1,5 +1,5 @@
 <div class="ui basic center aligned segment">
-  <%= link_to raw("#{content_tag(:i, "", class: "user icon")} New Contact"), new_contact_path, :class => "ui blue labeled icon small button" %>
+  <%= link_to raw("#{content_tag(:i, "", class: "user icon")}Add New Contact"), new_contact_path, :class => "ui blue labeled icon button" %>
 </div>
 
 <%= form_tag contacts_path, :method => 'get', :id => "contact_search", :class => "form-search" do %>
