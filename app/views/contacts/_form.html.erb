@@ -1,9 +1,9 @@
+<div class="ui error form segment">
 <%= form_for(@contact) do |f| %>
   <% if @contact.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
-
-      <ul>
+	<div class="ui error message">
+      <div class="header"><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</div>
+      <ul class="list">
       <% @contact.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
@@ -12,26 +12,44 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
+	<%= f.label :first_name %>
+	<div class="ui input">
+	    <%= f.text_field :first_name %>
+		<div class="ui orange corner label">
+	      <i class="icon asterisk"></i>
+	    </div>
+    </div>
   </div>
   <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
+    <%= f.label :last_name %>
+    <div class="ui input">
+	    <%= f.text_field :last_name %>
+		<div class="ui orange corner label">
+	      <i class="icon asterisk"></i>
+	    </div>
+    </div>
   </div>
   <div class="field">
-    <%= f.label :job_title %><br />
+    <%= f.label :job_title %>
     <%= f.text_field :job_title %>
   </div>
   <div class="field">
-    <%= f.label :company %><br />
+    <%= f.label :company %>
     <%= f.text_field :company %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="ui center aligned basic segment">
+	<div class="ui buttons">
+		<% if @contact.new_record? %>
+			<%= link_to "Cancel", contacts_path, :class => "ui button" %>
+		<% else %>
+			<%= link_to "Cancel", @contact, :class => "ui button" %>
+		<% end %>
+		<div class="or"></div>	
+	    <%= submit_tag "Save", :class => "ui blue submit button" %>
+	</div>
   </div>
 <% end %>
