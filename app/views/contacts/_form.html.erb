@@ -1,5 +1,4 @@
-<div class="ui error form segment">
-<%= form_for(@contact) do |f| %>
+<%= form_for(@contact, :html => { :class => "ui error form segment" }) do |f| %>
   <% if @contact.errors.any? %>
 	<div class="ui error message">
       <div class="header"><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</div>
@@ -13,7 +12,15 @@
 
   <div class="field">
     <%= f.label :title %>
-    <%= f.text_field :title %>
+	<div class="ui selection dropdown">
+	  <%= f.hidden_field :title %>
+	  <div class="default text">Title</div>
+	  <i class="dropdown icon"></i>
+	  <div class="menu">
+	    <div class="item" data-value="Mr">Mr</div>
+	    <div class="item" data-value="Ms">Ms</div>
+	  </div>
+	</div>	
   </div>
   <div class="field">
 	<%= f.label :first_name %>
