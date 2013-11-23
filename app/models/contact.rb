@@ -1,6 +1,8 @@
 class Contact < ActiveRecord::Base
   attr_accessible :company, :first_name, :job_title, :last_name, :title
   
+  validates :first_name, :last_name, presence: true, length: { minimum: 2 }
+  
   default_scope { order("first_name ASC") }
   
   def self.search(search)
