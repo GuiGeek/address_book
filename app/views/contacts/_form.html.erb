@@ -44,7 +44,7 @@
   <div class="ui center aligned basic segment">
 	<div class="ui buttons">
 		<% if @contact.new_record? %>
-			<%= link_to "Cancel", contacts_path, :class => "ui button" %>
+			<%= link_to "Cancel", root_path, :class => "ui button" %>
 		<% else %>
 			<%= link_to "Cancel", @contact, :class => "ui button" %>
 		<% end %>
