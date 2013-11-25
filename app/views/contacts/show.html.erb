@@ -8,7 +8,7 @@
 <% end %>
 
 <div class="ui piled center aligned segment">
-  <%= link_to content_tag(:i, "", :class => "trash icon"), @contact, method: :delete, data: { confirm: 'Are you sure?' }, :title => "Delete", :class => "ui trash corner label" %>
+  <%= link_to content_tag(:i, "", :class => "trash icon popup", "data-content" => "Delete this contact?"), @contact, method: :delete, data: { confirm: 'Are you sure?' }, :class => "ui trash corner label" %>
   <div class="content">
     <h3 class="ui icon header">
       <i class="circular user icon"></i>
