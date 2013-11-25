@@ -11,12 +11,57 @@
   <%= link_to content_tag(:i, "", :class => "trash icon"), @contact, method: :delete, data: { confirm: 'Are you sure?' }, :title => "Delete", :class => "ui trash corner label" %>
   <div class="content">
     <h3 class="ui icon header">
-		<i class="circular user icon"></i>
-		<div class="content">
-			<%= @contact.full_name %>
-			<div class="sub header"><%= @contact.job %></div>
-		</div>
-	</h3>
+      <i class="circular user icon"></i>
+      <div class="content">
+        <%= @contact.full_name %>
+        <div class="sub header"><%= @contact.job %></div>
+      </div>
+    </h3>
+    <div class="ui basic left aligned segment">
+      <% if @contact.emails.exists? %>
+        <div class="ui horizontal icon divider">
+          <i class="circular mail icon"></i>
+        </div>
+      <% end %>
+      <div class="ui relaxed list">
+          <% @contact.emails.each do |email| %>
+            <div class="item">
+              <div class="header"><%= email.label %></div>
+              <div class="description"><%= email.email %></div>
+            </div>
+          <% end %>
+      </div>
+      <% if @contact.phones.exists? %>
+        <div class="ui horizontal icon divider">
+          <i class="circular phone icon"></i>
+        </div>
+      <% end %>
+      <div class="ui relaxed list">
+        <% @contact.phones.each do |phone| %>
+          <div class="item">
+            <div class="content">
+              <a class="header"><%= phone.label %></a>
+              <div class="description"><%= phone.phone %></div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <% if @contact.phones.exists? %>
+        <div class="ui horizontal icon divider">
+          <i class="circular map marker icon"></i>
+        </div>
+      <% end %>
+      <div class="ui relaxed list">
+        <% @contact.addresses.each do |address| %>
+          <div class="item">
+            <div class="content">
+              <a class="header"><%= address.label %></a>
+              <div class="description"><%= address.full_address(true) %></div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
   <div class="ui basic segment">
 	<div class="ui buttons">
