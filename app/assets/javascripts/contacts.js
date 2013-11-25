@@ -157,6 +157,6 @@ $(document).ready(function() {
   
   //Remove phone form on icon remove click
   $("#address-list").on("click", "i.remove.icon", function(){
-    $(this).parent().parent().parent().remove();
+    $(this).parent().parent().parent().parent().remove();
   });
 });
