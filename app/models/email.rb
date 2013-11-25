@@ -4,5 +4,4 @@ class Email < ActiveRecord::Base
   
   validates :label, :presence => true,
                     :length => { :minimum => 2 }
-  
 end

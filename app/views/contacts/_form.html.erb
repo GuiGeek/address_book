@@ -56,6 +56,13 @@
   </div>
   <a id="addemail">Add eMail</a>
   
+  <h2>Phones</h2>
+  <div id="phone-list">  
+    <%= render :partial => 'phones/form',
+               :locals => {:form => f} %>
+  </div>
+  <a id="addphone">Add phone</a>
+  
   <div class="ui center aligned basic segment">
     <div class="ui buttons">
       <% if @contact.new_record? %>

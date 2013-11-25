@@ -52,6 +52,10 @@ $(document).ready(function() {
     on     : 'blur'
   });
   
+  /*
+   * eMail form
+   */
+   
   //Add a new email form in contact form
   $('a#addemail').click(function() {
     addemail();
@@ -83,4 +87,35 @@ $(document).ready(function() {
   $("#email-list").on("click", "i.remove.icon", function(){
     $(this).parent().parent().parent().remove();
   });
+  
+  /*
+   * Phone form
+   */
+  
+  //Add a new email form in contact form
+  $('a#addphone').click(function() {
+    addphone();
+  });
+  
+  function addphone() {
+    
+    // grab the prototype template
+    var newphone = $('div#phone-form-prototype').attr('data-prototype');
+    var count = $('div.inline.fields').length;
+    
+    // replace the "$count$" used in the id and name of the prototype
+    // with a number that's unique to our emails
+    // end name attribute looks like name="contact[emails][2]"
+    newphone = newphone.replace(/\$count\$/g, count);
+    
+    // create a new list element and add it to our list
+    var newLine = $('<div class="inline fields"></div>').html(newphone);
+    newLine.appendTo($('div#phone-list'));
+	
+    //Active new dropdown menu
+    $(".ui.dropdown").dropdown({action: "updateForm"});
+    
+    //Select phone input
+    $("#contact_phones_attributes_"+count+"_phone").select();
+  }
 });

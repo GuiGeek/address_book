@@ -1,11 +1,14 @@
 class Contact < ActiveRecord::Base
-  attr_accessible :company, :first_name, :job_title, :last_name, :title, :emails_attributes
+  attr_accessible :company, :first_name, :job_title, :last_name, :title, :emails_attributes, :phones_attributes
   
   validates :first_name, :last_name, presence: true, length: { minimum: 2 }
   
   has_many :emails
+  has_many :phones
   
   accepts_nested_attributes_for :emails, :allow_destroy => :true,
+    :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
+  accepts_nested_attributes_for :phones, :allow_destroy => :true,
     :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
   
   default_scope { order("first_name ASC") }
