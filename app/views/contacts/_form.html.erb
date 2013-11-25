@@ -49,21 +49,21 @@
     <%= f.text_field :company %>
   </div>
   
-  <h3 class="ui dividing header">Emails</h3>
+  <h3 class="ui header"><i class="mail icon"></i>Emails</h3>
   <div id="email-list">  
     <%= render :partial => 'emails/form',
                :locals => {:form => f} %>
   </div>
   <a id="addemail">Add eMail</a>
   
-  <h3 class="ui dividing header">Phones</h3>
+  <h3 class="ui header"><i class="phone icon"></i>Phones</h3>
   <div id="phone-list">  
     <%= render :partial => 'phones/form',
                :locals => {:form => f} %>
   </div>
   <a id="addphone">Add phone</a>
   
-  <h3 class="ui dividing header">Addresses</h3>
+  <h3 class="ui header"><i class="map marker icon"></i>Addresses</h3>
   <div id="address-list">  
     <%= render :partial => 'addresses/form',
                :locals => {:form => f} %>
