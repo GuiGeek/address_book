@@ -118,4 +118,45 @@ $(document).ready(function() {
     //Select phone input
     $("#contact_phones_attributes_"+count+"_phone").select();
   }
+  
+  //Remove phone form on icon remove click
+  $("#phone-list").on("click", "i.remove.icon", function(){
+    $(this).parent().parent().parent().remove();
+  });
+  
+  /*
+   * Address form
+   */
+  
+  //Add a new email form in contact form
+  $('a#addaddress').click(function() {
+    addaddress();
+  });
+  
+  function addaddress() {
+    
+    // grab the prototype template
+    var newaddress = $('div#address-form-prototype').attr('data-prototype');
+    var count = $('div.inline.fields').length;
+    
+    // replace the "$count$" used in the id and name of the prototype
+    // with a number that's unique to our emails
+    // end name attribute looks like name="contact[emails][2]"
+    newaddress = newaddress.replace(/\$count\$/g, count);
+    
+    // create a new list element and add it to our list
+    var newLine = $('<div class="fields"></div>').html(newaddress);
+    newLine.appendTo($('div#address-list'));
+	
+    //Active new dropdown menu
+    $(".ui.dropdown").dropdown({action: "updateForm"});
+    
+    //Select phone input
+    $("#contact_addresses_attributes_"+count+"_street1").select();
+  }
+  
+  //Remove phone form on icon remove click
+  $("#address-list").on("click", "i.remove.icon", function(){
+    $(this).parent().parent().parent().remove();
+  });
 });

@@ -1,0 +1,99 @@
+<div id="address-form-prototype" data-prototype='
+  <div class="two fields">
+    <div class="field">
+      <label for="contact_addresses_attributes_$count$_label">Label:</label>
+      <div class="ui selection dropdown">
+        <input id="contact_addresses_attributes_$count$_label" name="contact[addresses_attributes][$count$][label]" type="hidden">
+        <div class="default text">Select label</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item" data-value="Home">Home</div>
+          <div class="item" data-value="Work">Work</div>
+          <div class="item" data-value="Other">Other</div>
+        </div>
+      </div>
+    </div>
+    <div class="field"><a><i class="ui remove icon" data-placement="right" data-toggle="tooltip" title="Remove"></i></a></div>
+  </div>
+  <div class="three fields">
+    <div class="field">
+      <label for="contact_addresses_attributes_$count$_street1">Street:</label>
+      <input id="contact_addresses_attributes_$count$_street1" name="contact[addresses_attributes][0][street1]" size="30" type="text">
+    </div>
+    <div class="field">
+      <label for="contact_addresses_attributes_$count$_street2">Street:</label>
+      <input id="contact_addresses_attributes_$count$_street2" name="contact[addresses_attributes][0][street2]" size="30" type="text">
+    </div>
+    <div class="field">
+      <label for="contact_addresses_attributes_$count$_city">City:</label>
+      <input id="contact_addresses_attributes_$count$_city" name="contact[addresses_attributes][0][city]" size="30" type="text">
+    </div>
+  </div>
+  <div class="three fields">
+    <div class="field">
+      <label for="contact_addresses_attributes_$count$_region">Region:</label>
+      <input id="contact_addresses_attributes_$count$_region" name="contact[addresses_attributes][0][region]" size="30" type="text">
+    </div>
+    <div class="field">
+      <label for="contact_addresses_attributes_$count$_postal_code">Postal Code:</label>
+      <input id="contact_addresses_attributes_$count$_postal_code" name="contact[addresses_attributes][0][postal_code]" size="30" type="text">
+    </div>
+    <div class="field">
+      <label for="contact_addresses_attributes_$count$_country">Country:</label>
+      <input id="contact_addresses_attributes_$count$_country" name="contact[addresses_attributes][0][country]" size="30" type="text">
+    </div>
+  </div>
+'></div>
+<%= form.fields_for :addresses do |address_form| %>
+  <div class="two fields">
+    <div class="field">
+      <%= address_form.label :label, 'Label:' %>
+      <div class="ui selection dropdown">
+        <%= address_form.hidden_field :label %>
+        <div class="default text">Select label</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item" data-value="Home">Home</div>
+          <div class="item" data-value="Work">Work</div>
+          <div class="item" data-value="Other">Other</div>
+        </div>
+      </div>
+    </div>
+    <% unless address_form.object.nil? || address_form.object.new_record? %>
+      <div class="field">
+        <div class="ui checkbox">
+          <%= address_form.check_box :_destroy %>
+          <%= address_form.label :_destroy, 'Check to remove on saving' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="three fields">
+    <div class="field">
+      <%= address_form.label :street1, 'Street:' %>
+      <%= address_form.text_field :street1 %>
+    </div>
+    <div class="field">
+      <%= address_form.label :street2, 'Street:' %>
+      <%= address_form.text_field :street2 %>
+    </div>
+    <div class="field">
+      <%= address_form.label :city, 'City:' %>
+      <%= address_form.text_field :city %>
+    </div>
+  </div>
+  <div class="three fields">
+    <div class="field">
+      <%= address_form.label :region, 'Region:' %>
+      <%= address_form.text_field :region %>
+    </div>
+    <div class="field">
+      <%= address_form.label :postal_code, 'Postal Code:' %>
+      <%= address_form.text_field :postal_code %>
+    </div>
+    <div class="field">
+      <%= address_form.label :country, 'Country:' %>
+      <%= address_form.text_field :country %>
+    </div>
+  </div>
+<% end %>
