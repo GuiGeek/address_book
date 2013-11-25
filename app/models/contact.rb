@@ -3,6 +3,11 @@ class Contact < ActiveRecord::Base
   
   validates :first_name, :last_name, presence: true, length: { minimum: 2 }
   
+  has_many :emails
+  
+  accepts_nested_attributes_for :emails, :allow_destroy => :true,
+    :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
+  
   default_scope { order("first_name ASC") }
   
   def self.search(search)
