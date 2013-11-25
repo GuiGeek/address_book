@@ -1,5 +1,5 @@
 <div id="address-form-prototype" data-prototype='
-  <div class="two fields">
+  <div class="inline fields">
     <div class="field">
       <label for="contact_addresses_attributes_$count$_label">Label:</label>
       <div class="ui selection dropdown">
@@ -13,7 +13,7 @@
         </div>
       </div>
     </div>
-    <div class="field"><a><i class="ui remove icon" data-placement="right" data-toggle="tooltip" title="Remove"></i></a></div>
+    <div class="field"><a><i class="remove icon" title="Remove"></i></a></div>
   </div>
   <div class="three fields">
     <div class="field">
@@ -45,7 +45,7 @@
   </div>
 '></div>
 <%= form.fields_for :addresses do |address_form| %>
-  <div class="two fields">
+  <div class="inline fields">
     <div class="field">
       <%= address_form.label :label, 'Label:' %>
       <div class="ui selection dropdown">
@@ -63,7 +63,7 @@
       <div class="field">
         <div class="ui checkbox">
           <%= address_form.check_box :_destroy %>
-          <%= address_form.label :_destroy, 'Check to remove on saving' %>
+          <%= address_form.label :destroy, 'Remove', :class => "popup", "data-content" => "Check to remove on saving" %>
         </div>
       </div>
     <% end %>

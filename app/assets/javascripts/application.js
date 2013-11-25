@@ -23,6 +23,7 @@ $(document).ready(function() {
   
   //Active Semantic-UI popup
   $('.icon.popup').popup();
+  $('label.popup').popup();
   
   //Active close icon to close his parent (ex. message box)
   $(".close.icon").click(function(){

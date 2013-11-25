@@ -17,7 +17,7 @@
       <label for="contact_phones_attributes_$count$_phone">phone:</label>
       <input id="contact_phones_attributes_$count$_phone" name="contact[phones_attributes][$count$][phone]" size="30" type="text">
     </div>
-    <div class="field"><a><i class="ui remove icon" data-placement="right" data-toggle="tooltip" title="Remove"></i></a></div>
+    <div class="field"><a><i class="remove icon" title="Remove this email"></i></a></div>
   </div>
 '></div>
 <%= form.fields_for :phones do |phone_form| %>
@@ -43,7 +43,7 @@
       <div class="field">
         <div class="ui checkbox">
           <%= phone_form.check_box :_destroy %>
-          <%= phone_form.label :_destroy, 'Check to remove on saving' %>
+          <%= phone_form.label :_destroy, 'Remove', :class => "popup", "data-content" => "Check to remove on saving" %>
         </div>
       </div>
     <% end %>
