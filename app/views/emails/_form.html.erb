@@ -1,0 +1,55 @@
+<div id="email-form-prototype" data-prototype='
+  <div class="inline fields">
+    <div class="field">
+      <label for="contact_emails_attributes_$count$_label">Label:</label>
+      <div class="ui selection dropdown">
+        <input id="contact_emails_attributes_$count$_label" name="contact[emails_attributes][$count$][label]" type="hidden">
+        <div class="default text">Select label</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item" data-value="Home">Home</div>
+          <div class="item" data-value="Work">Work</div>
+          <div class="item" data-value="Other">Other</div>
+        </div>
+      </div>
+      <script>
+        //Active dropdown menu 
+        //$(".ui.dropdown").dropdown({action: "updateForm"});
+      </script>
+    </div>
+    <div class="field">
+      <label for="contact_emails_attributes_$count$_email">eMail:</label>
+      <input id="contact_emails_attributes_$count$_email" name="contact[emails_attributes][$count$][email]" size="30" type="text">
+    </div>
+    <div class="field"><a><i class="ui remove icon" data-placement="right" data-toggle="tooltip" title="Remove"></i></a></div>
+  </div>
+'></div>
+<%= form.fields_for :emails do |email_form| %>
+  <div class="inline fields">
+    <div class="field">
+      <%= email_form.label :label, 'Label:' %>
+      <div class="ui selection dropdown">
+        <%= email_form.hidden_field :label %>
+        <div class="default text">Select label</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item" data-value="Home">Home</div>
+          <div class="item" data-value="Work">Work</div>
+          <div class="item" data-value="Other">Other</div>
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <%= email_form.label :email, 'eMail:' %>
+      <%= email_form.text_field :email %>
+    </div>
+    <% unless email_form.object.nil? || email_form.object.new_record? %>
+      <div class="field">
+        <div class="ui checkbox">
+          <%= email_form.check_box :_destroy %>
+          <%= email_form.label :_destroy, 'Check to remove on saving' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

@@ -1,5 +1,5 @@
 class Contact < ActiveRecord::Base
-  attr_accessible :company, :first_name, :job_title, :last_name, :title
+  attr_accessible :company, :first_name, :job_title, :last_name, :title, :emails_attributes
   
   validates :first_name, :last_name, presence: true, length: { minimum: 2 }
   

@@ -12,15 +12,15 @@
 
   <div class="field">
     <%= f.label :title %>
-	<div class="ui selection dropdown">
-	  <%= f.hidden_field :title %>
-	  <div class="default text">Title</div>
-	  <i class="dropdown icon"></i>
-	  <div class="menu">
-	    <div class="item" data-value="Mr">Mr</div>
-	    <div class="item" data-value="Ms">Ms</div>
-	  </div>
-	</div>	
+    <div class="ui selection dropdown">
+      <%= f.hidden_field :title %>
+      <div class="default text">Select title</div>
+      <i class="dropdown icon"></i>
+      <div class="menu">
+        <div class="item" data-value="Mr">Mr</div>
+        <div class="item" data-value="Ms">Ms</div>
+      </div>
+    </div>	
   </div>
   <div class="field">
 	<%= f.label :first_name %>
@@ -48,15 +48,23 @@
     <%= f.label :company %>
     <%= f.text_field :company %>
   </div>
+  
+  <h2>Emails</h2>
+  <div id="email-list">  
+    <%= render :partial => 'emails/form',
+               :locals => {:form => f} %>
+  </div>
+  <a id="addemail">Add eMail</a>
+  
   <div class="ui center aligned basic segment">
-	<div class="ui buttons">
-		<% if @contact.new_record? %>
-			<%= link_to "Cancel", root_path, :class => "ui button" %>
-		<% else %>
-			<%= link_to "Cancel", @contact, :class => "ui button" %>
-		<% end %>
-		<div class="or"></div>	
-	    <%= submit_tag "Save", :class => "ui blue submit button" %>
-	</div>
+    <div class="ui buttons">
+      <% if @contact.new_record? %>
+        <%= link_to "Cancel", root_path, :class => "ui button" %>
+      <% else %>
+        <%= link_to "Cancel", @contact, :class => "ui button" %>
+      <% end %>
+      <div class="or"></div>	
+        <%= submit_tag "Save", :class => "ui blue submit button" %>
+    </div>
   </div>
 <% end %>

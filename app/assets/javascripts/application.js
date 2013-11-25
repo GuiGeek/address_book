@@ -18,8 +18,12 @@ $(document).ready(function() {
   //Active Semantic-UI dropdown menu
   $('.ui.dropdown').dropdown({action: 'updateForm'});
   
+  //Active Semantic-UI checkbox
+  $('.ui.checkbox').checkbox();
+  
   //Active close icon to close his parent (ex. message box)
   $(".close.icon").click(function(){
     $(this).parent().hide();
   });
+  
 });

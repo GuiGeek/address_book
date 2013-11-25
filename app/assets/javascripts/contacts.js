@@ -51,5 +51,36 @@ $(document).ready(function() {
     inline : true,
     on     : 'blur'
   });
-
+  
+  //Add a new email form in contact form
+  $('a#addemail').click(function() {
+    addemail();
+  });
+  
+  function addemail() {
+    
+    // grab the prototype template
+    var newemail = $('div#email-form-prototype').attr('data-prototype');
+    var count = $('div.inline.fields').length;
+    
+    // replace the "$count$" used in the id and name of the prototype
+    // with a number that's unique to our emails
+    // end name attribute looks like name="contact[emails][2]"
+    newemail = newemail.replace(/\$count\$/g, count);
+    
+    // create a new list element and add it to our list
+    var newLine = $('<div class="inline fields"></div>').html(newemail);
+    newLine.appendTo($('div#email-list'));
+	
+    //Active new dropdown menu
+    $(".ui.dropdown").dropdown({action: "updateForm"});
+    
+    //Select email input
+    $("#contact_emails_attributes_"+count+"_email").select();
+  }
+  
+  //Remove email form on icon remove click
+  $("#email-list").on("click", "i.remove.icon", function(){
+    $(this).parent().parent().parent().remove();
+  });
 });
