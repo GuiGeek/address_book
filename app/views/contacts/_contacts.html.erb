@@ -1,3 +1,10 @@
+<div class="ui basic right aligned segment">
+  <div class="ui blue large label">
+    <div class="detail"><%= @contacts.count %></div>
+    Contact(s)
+  </div>
+</div>
+
 <% letter=nil %>
 <div class="ui very relaxed list">
   <% @contacts.each do |contact| %>
@@ -16,11 +23,4 @@
     </div>
   </div>
   <% end %>
-</div>
-
-<div class="ui basic right aligned segment">
-  <div class="ui blue large label">
-    <div class="detail"><%= @contacts.count %></div>
-    Contact(s)
-  </div>
 </div>
