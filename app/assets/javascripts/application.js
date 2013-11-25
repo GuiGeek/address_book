@@ -14,5 +14,12 @@
 //= require jquery_ujs
 //= require_tree .
 $(document).ready(function() {
-	$('.ui.dropdown').dropdown({action: 'updateForm'})
+	
+  //Active Semantic-UI dropdown menu
+  $('.ui.dropdown').dropdown({action: 'updateForm'});
+  
+  //Active close icon to close his parent (ex. message box)
+  $(".close.icon").click(function(){
+    $(this).parent().hide();
+  });
 });

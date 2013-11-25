@@ -1,4 +1,11 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+<div class="ui success message">
+  <i class="close icon"></i>
+  <div class="header">
+    <%= notice %>
+  </div>
+</div>
+<% end %>
 
 <div class="ui piled center aligned segment">
   <a class="info letter ui corner label">
