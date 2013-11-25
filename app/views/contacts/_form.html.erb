@@ -49,14 +49,14 @@
     <%= f.text_field :company %>
   </div>
   
-  <h2>Emails</h2>
+  <h3 class="ui dividing header">Emails</h3>
   <div id="email-list">  
     <%= render :partial => 'emails/form',
                :locals => {:form => f} %>
   </div>
   <a id="addemail">Add eMail</a>
   
-  <h2>Phones</h2>
+  <h3 class="ui dividing header">Phones</h3>
   <div id="phone-list">  
     <%= render :partial => 'phones/form',
                :locals => {:form => f} %>
