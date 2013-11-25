@@ -1,0 +1,8 @@
+<%= form_for([@contact, @contact.notes.build], :html => {:class => "ui reply form"}) do |f| %>
+  <div class="field">
+    <%= f.text_area :note %>
+  </div>
+  <div class="actions">
+    <%= button_tag raw("#{content_tag(:i, "", class: "edit icon")}Add note"), :type =>"submit", :class => "ui fluid blue labeled submit icon button" %>
+  </div>
+<% end %>

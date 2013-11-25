@@ -64,10 +64,24 @@
     </div>
   </div>
   <div class="ui basic segment">
-	<div class="ui buttons">
-		<%= link_to "Back to list", root_path, :class => "ui button" %>
-		<div class="or"></div>	
-	    <%= link_to 'Edit', edit_contact_path(@contact), :class => "ui orange button" %>
-	</div>
+    <div class="ui buttons">
+      <%= link_to "Back to list", root_path, :class => "ui button" %>
+      <div class="or"></div>	
+        <%= link_to 'Edit', edit_contact_path(@contact), :class => "ui orange button" %>
+    </div>
+  </div>
+</div>
+
+<div class="ui one column grid">
+  <div class="column">
+    <div class="ui basic segment">
+      <h2 class="ui header">
+        <i class="icon inverted circular blue comment"></i> Notes
+      </h2>
+      <div class="ui comments">
+        <%= render @contact.notes %>
+        <%= render "notes/form" %>
+      </div>
+    </div>
   </div>
 </div>

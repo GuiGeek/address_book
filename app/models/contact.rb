@@ -6,7 +6,7 @@ class Contact < ActiveRecord::Base
   has_many :emails
   has_many :phones
   has_many :addresses
-  has_many :notes
+  has_many :notes, :dependent => :destroy
   
   accepts_nested_attributes_for :emails, :allow_destroy => :true,
     :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }

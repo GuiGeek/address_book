@@ -1,0 +1,13 @@
+<div class="comment">
+  <div class="content">
+    <div class="text">
+      <%= note.note %>
+    </div>
+    <div class="metadata">
+      <span class="date"><%= "#{distance_of_time_in_words note.created_at, Time.now} ago" %></span>
+      <div class="actions">
+        <%= link_to 'Remove note', [note.contact, note], :confirm => 'Are you sure?', :method => :delete %>
+      </div>
+    </div>
+  </div>
+</div>
